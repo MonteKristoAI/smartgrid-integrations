@@ -161,4 +161,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ---- FAQ Accordion ---- */
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const chevron = btn.querySelector('.faq-chevron');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.faq-trigger').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          const otherContent = other.nextElementSibling;
+          const otherChevron = other.querySelector('.faq-chevron');
+          if (otherContent) otherContent.style.maxHeight = '0';
+          if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        if (content) content.style.maxHeight = '0';
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        if (content) content.style.maxHeight = content.scrollHeight + 'px';
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
 });
