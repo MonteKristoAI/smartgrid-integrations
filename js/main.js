@@ -129,15 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const msg = chatInput.value.trim();
         if (!msg) return;
         const userBubble = document.createElement('div');
-        userBubble.className = 'flex justify-end';
-        userBubble.innerHTML = '<div class="bg-red-700 text-white px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%] text-sm">' + msg + '</div>';
+        userBubble.className = 'flex justify-end mb-3';
+        const userMsg = document.createElement('div');
+        userMsg.className = 'bg-red-700 text-white px-4 py-2 rounded-2xl rounded-tr-sm max-w-[80%] text-sm';
+        userMsg.textContent = msg;  // Safe - uses textContent, not innerHTML
+        userBubble.appendChild(userMsg);
         chatMessages.appendChild(userBubble);
         chatInput.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
         setTimeout(() => {
           const botBubble = document.createElement('div');
-          botBubble.className = 'flex justify-start';
-          botBubble.innerHTML = '<div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-bl-sm max-w-[80%] text-sm">' + getChatResponse(msg) + '</div>';
+          botBubble.className = 'flex justify-start mb-3';
+          const botMsg = document.createElement('div');
+          botMsg.className = 'bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-bl-sm max-w-[80%] text-sm';
+          botMsg.textContent = getChatResponse(msg);  // Safe - uses textContent, not innerHTML
+          botBubble.appendChild(botMsg);
           chatMessages.appendChild(botBubble);
           chatMessages.scrollTop = chatMessages.scrollHeight;
         }, 800);
