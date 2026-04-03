@@ -82,6 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => countObserver.observe(c));
   }
 
+  /* ---- Chatbot Keyword Responses ---- */
+  function getChatResponse(message) {
+    const msg = message.toLowerCase();
+    if (msg.includes('price') || msg.includes('cost') || msg.includes('quote')) {
+      return 'For pricing information, I recommend scheduling a free consultation. Our solutions are customized to your specific needs. Call us at (855) 746-4744 or use our booking form above.';
+    }
+    if (msg.includes('service') || msg.includes('cabling') || msg.includes('network') || msg.includes('wifi')) {
+      return 'We offer 18+ IT integration services including structured cabling, Wi-Fi design, managed services, and cloud solutions. Visit our Services page for full details!';
+    }
+    if (msg.includes('deploy') || msg.includes('global') || msg.includes('location') || msg.includes('country')) {
+      return 'SmartGrid deploys across 120+ countries with 5,000+ service professionals. Our NOC operates 24/7/365. Check our Deployments page for more info.';
+    }
+    if (msg.includes('contact') || msg.includes('call') || msg.includes('phone') || msg.includes('email')) {
+      return 'You can reach us at (855) 746-4744 (toll-free) or (404) 934-6940 (local). Visit our Contact page to send us a message directly.';
+    }
+    if (msg.includes('about') || msg.includes('who') || msg.includes('company') || msg.includes('history')) {
+      return 'SmartGrid Integrations has been a trusted IT integrator since 1990. We started as an integrator for IBM, AT&T, and Lucent. Visit our About page to learn more about our story.';
+    }
+    return 'Thanks for your message! For immediate assistance, call us at (855) 746-4744 or schedule a free consultation using the booking form on our homepage.';
+  }
+
   /* ---- Chatbot Widget ---- */
   const chatToggle = document.getElementById('chat-toggle');
   const chatWindow = document.getElementById('chat-window');
@@ -116,36 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           const botBubble = document.createElement('div');
           botBubble.className = 'flex justify-start';
-          botBubble.innerHTML = '<div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-bl-sm max-w-[80%] text-sm">Thanks for reaching out! A SmartGrid representative will be in touch shortly. For immediate help, call <strong>+1 (855) 746-4744</strong>.</div>';
+          botBubble.innerHTML = '<div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-bl-sm max-w-[80%] text-sm">' + getChatResponse(msg) + '</div>';
           chatMessages.appendChild(botBubble);
           chatMessages.scrollTop = chatMessages.scrollHeight;
         }, 800);
       });
     }
-  }
-
-  /* ---- Contact Form Handling ---- */
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const origText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Message Sent!';
-        btn.classList.remove('bg-red-700', 'hover:bg-red-800');
-        btn.classList.add('bg-green-600');
-        contactForm.reset();
-        setTimeout(() => {
-          btn.textContent = origText;
-          btn.disabled = false;
-          btn.classList.remove('bg-green-600');
-          btn.classList.add('bg-red-700', 'hover:bg-red-800');
-        }, 3000);
-      }, 1500);
-    });
   }
 
   /* ---- Smooth scroll for anchor links ---- */
