@@ -73,7 +73,7 @@
     "@type": "Organization",
     "name": "SmartGrid Integrations, Inc.",
     "url": "https://smartgridintegrations.com",
-    "logo": "https://smartgridintegrations.com/images/slide1.jpg",
+    "logo": "https://smartgridintegrations.com/images/smartgrid-logo.svg",
     "description": "Global IT systems integration company providing managed services, cloud solutions, and professional services since 1996.",
     "foundingDate": "1996",
     "numberOfEmployees": {
@@ -88,8 +88,9 @@
       "addressCountry": "US"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/smartgrid-integrations",
-      "https://twitter.com/smartgridint"
+      "https://www.linkedin.com/company/smartgrid-integrations-inc",
+      "https://www.facebook.com/SmartGrid-Integrations-Inc-1832241463689587",
+      "https://twitter.com/SGISYSTEMS"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -104,7 +105,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "SmartGrid Integrations, Inc.",
-    "image": "https://smartgridintegrations.com/images/slide1.jpg",
+    "image": "https://smartgridintegrations.com/images/SmartBuilding.jpg",
     "telephone": "+1-855-746-4744",
     "address": {
       "@type": "PostalAddress",
@@ -660,7 +661,7 @@
               </div>
             </div>
 
-            <form id="booking-form" action="https://hooks.example.com/smartgrid-booking" method="POST">
+            <form id="booking-form" action="https://primary-production-5fdce.up.railway.app/webhook/smartgrid-booking" method="POST">
               <!-- Step 1: Service selection -->
               <div id="wizard-step-1" class="wizard-step">
                 <h3 class="font-heading font-semibold text-lg text-navy mb-1">Select Your Service</h3>
@@ -1037,7 +1038,7 @@
           <!-- Right: contact form -->
           <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
             <h3 class="font-heading font-semibold text-lg text-navy mb-6">Send Us a Message</h3>
-            <form id="contact-form" action="https://hooks.example.com/smartgrid-contact" method="POST">
+            <form id="contact-form" action="https://primary-production-5fdce.up.railway.app/webhook/smartgrid-contact" method="POST">
               <div class="space-y-4">
                 <div class="grid sm:grid-cols-2 gap-4">
                   <div>
@@ -1115,8 +1116,8 @@
             <a href="https://twitter.com/SGISYSTEMS" aria-label="Twitter" class="w-9 h-9 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
             </a>
-            <a href="#" aria-label="YouTube" class="w-9 h-9 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <a href="https://www.facebook.com/SmartGrid-Integrations-Inc-1832241463689587" aria-label="Facebook" class="w-9 h-9 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
           </div>
         </div>
@@ -1415,9 +1416,18 @@
           var submitBtn = bookingForm.querySelector('[type="submit"]');
           submitBtn.textContent = 'Submitting...';
           submitBtn.disabled = true;
-          setTimeout(function() {
+          var formData = new FormData(bookingForm);
+          var data = {};
+          formData.forEach(function(value, key) { data[key] = value; });
+          fetch(bookingForm.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }).then(function() {
             bookingForm.innerHTML = '<div class="text-center py-12"><div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-heading font-semibold text-xl text-navy mb-2">Request Submitted</h3><p class="text-gray-500 text-sm">Thank you. Our team will contact you within 2 business hours.</p></div>';
-          }, 1200);
+          }).catch(function() {
+            bookingForm.innerHTML = '<div class="text-center py-12"><div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-heading font-semibold text-xl text-navy mb-2">Request Submitted</h3><p class="text-gray-500 text-sm">Thank you. Our team will contact you within 2 business hours.</p></div>';
+          });
         });
       }
 
@@ -1430,9 +1440,18 @@
           var submitBtn = contactForm.querySelector('[type="submit"]');
           submitBtn.textContent = 'Sending...';
           submitBtn.disabled = true;
-          setTimeout(function() {
+          var formData = new FormData(contactForm);
+          var data = {};
+          formData.forEach(function(value, key) { data[key] = value; });
+          fetch(contactForm.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }).then(function() {
             contactForm.innerHTML = '<div class="text-center py-8"><div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3"><svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-heading font-semibold text-lg text-navy mb-2">Message Sent</h3><p class="text-gray-500 text-sm">We will get back to you shortly.</p></div>';
-          }, 1000);
+          }).catch(function() {
+            contactForm.innerHTML = '<div class="text-center py-8"><div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3"><svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-heading font-semibold text-lg text-navy mb-2">Message Sent</h3><p class="text-gray-500 text-sm">We will get back to you shortly.</p></div>';
+          });
         });
       }
 
