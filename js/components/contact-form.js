@@ -7,7 +7,7 @@
   'use strict';
 
   /* ---------- Config ---------- */
-  var CONTACT_WEBHOOK_URL = 'https://your-webhook-url.com/contact';
+  var CONTACT_WEBHOOK_URL = 'https://primary-production-5fdce.up.railway.app/webhook/smartgrid-contact';
 
   /* ----------------------------------------------------------
      initContactForm(formId)

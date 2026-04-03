@@ -7,8 +7,8 @@
   'use strict';
 
   /* ---------- Config ---------- */
-  var GOOGLE_REVIEWS_URL = 'https://g.page/r/YOUR_GOOGLE_PLACE_ID/review';
-  var WEBHOOK_URL       = 'https://your-webhook-url.com/review-feedback';
+  var GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=SmartGrid+Integrations+reviews+Peachtree+City+GA';
+  var WEBHOOK_URL       = 'https://primary-production-5fdce.up.railway.app/webhook/smartgrid-review';
 
   /* ---------- State ---------- */
   var selectedRating    = 0;
