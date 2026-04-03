@@ -237,6 +237,94 @@ html { scroll-behavior: smooth; }
   .marquee-track { animation: none; }
 }
 
+/* ============================================
+   Mobile Optimization
+   ============================================ */
+
+/* Ensure body text is at least 16px on mobile to prevent iOS zoom */
+@media (max-width: 767px) {
+  /* Base font size enforcement */
+  body { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+  /* Prevent horizontal overflow */
+  html, body { overflow-x: hidden; }
+
+  /* Hero section mobile adjustments */
+  #hero { min-height: 100svh; } /* use svh for mobile viewport */
+  #hero h1 { font-size: 1.875rem; line-height: 1.2; } /* 30px */
+  #hero .max-w-2xl p { font-size: 1rem; }
+
+  /* Stats bar at bottom of hero — smaller text on tiny screens */
+  #hero .grid-cols-3 .font-heading { font-size: 1.375rem; }
+  #hero .grid-cols-3 .text-xs { font-size: 0.6875rem; }
+
+  /* Testimonial cards — fit on 320px screens */
+  #testimonial-track > div { width: 85vw !important; min-width: 280px; max-width: 340px; }
+
+  /* FAQ accordion — ensure 44px minimum tap target */
+  .faq-trigger { min-height: 48px; padding: 0.875rem 1rem; }
+  .faq-trigger span { font-size: 0.9375rem; line-height: 1.4; }
+  .faq-content p { font-size: 0.9375rem; line-height: 1.6; }
+
+  /* Mobile CTA bar — ensure enough padding and prevent overlap */
+  #mobile-cta-bar,
+  .fixed.bottom-0.z-40 { padding: 0.75rem 1rem; padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+
+  /* Add bottom padding to body/footer so content isn't hidden behind fixed mobile CTA */
+  footer { padding-bottom: 5rem !important; }
+
+  /* Chatbot window — full-width on mobile */
+  #chatbot-window, #chat-window { width: calc(100vw - 2rem) !important; max-width: 320px; }
+
+  /* Contact map — shorter on mobile */
+  .contact-map iframe { height: 250px !important; }
+
+  /* Booking wizard step labels — hide on very small screens */
+  [data-step] span:last-child { font-size: 0.625rem; }
+
+  /* Service option cards in wizard — full width stack */
+  .service-option { padding: 1rem; }
+
+  /* Form inputs — ensure 16px font to prevent iOS zoom */
+  input, select, textarea { font-size: 16px !important; }
+
+  /* Mobile nav links — 44px+ tap targets */
+  .mobile-nav-link { min-height: 44px; display: flex; align-items: center; }
+  #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+
+  /* About page: core values grid — 2 cols is ok but give more padding */
+  /* By the Numbers — smaller on mobile */
+  [data-count] { font-size: 2rem !important; }
+
+  /* Marquee on mobile — slow it down */
+  .marquee-track { gap: 2rem; }
+
+  /* Cards need breathing room */
+  .card-glow, .card-lift { margin-left: 0; margin-right: 0; }
+}
+
+/* Small mobile (320px - 374px) */
+@media (max-width: 374px) {
+  #hero h1 { font-size: 1.625rem; }
+  #hero .grid-cols-3 .font-heading { font-size: 1.125rem; }
+
+  /* Testimonial cards even smaller */
+  #testimonial-track > div { width: 90vw !important; min-width: 260px; }
+
+  /* Footer columns — stack to single on very small */
+  footer .grid { gap: 1.5rem; }
+}
+
+/* Ensure safe area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  #mobile-cta-bar {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+  footer {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+}
+
 /* Review Modal */
 .review-overlay {
   position: fixed;
