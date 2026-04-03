@@ -329,11 +329,21 @@
     <!-- ============================================================
          3. PARTNERS MARQUEE — Infinite scrolling logos
          ============================================================ -->
-    <section id="partners" class="reveal py-10 bg-gray-50 border-y border-gray-100 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+    <!-- Wave divider: hero → partners -->
+    <div class="relative h-16 -mt-1 z-10">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 w-full" preserveAspectRatio="none">
+        <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 48C960 48 1056 36 1152 28C1248 20 1344 16 1392 14L1440 12V60H0Z" fill="white"/>
+      </svg>
+    </div>
+
+    <section id="partners" class="reveal py-10 bg-gray-50 border-y border-gray-100 overflow-hidden relative">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=600&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.05]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 relative z-10">
         <p class="text-center text-xs font-semibold tracking-widest uppercase text-gray-400">Trusted Technology Partners</p>
       </div>
-      <div class="relative">
+      <div class="relative z-10">
         <!-- Gradient fade edges -->
         <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
         <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
@@ -377,8 +387,11 @@
     <!-- ============================================================
          4. SERVICES PREVIEW — 4 pillar cards
          ============================================================ -->
-    <section id="services" class="reveal py-20 lg:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" class="reveal py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=800&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.06]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Section header -->
         <div class="text-center max-w-2xl mx-auto mb-16">
           <span class="inline-block text-xs font-semibold tracking-widest uppercase text-red mb-3">What We Do</span>
@@ -389,7 +402,7 @@
         <!-- Cards grid -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <!-- Systems Integration -->
-          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1">
+          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1 card-glow">
             <div class="w-14 h-14 bg-navy/5 group-hover:bg-red/10 rounded-xl flex items-center justify-center mb-5 transition-colors">
               <svg class="w-7 h-7 text-navy group-hover:text-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
@@ -405,7 +418,7 @@
           </div>
 
           <!-- Managed Services -->
-          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1">
+          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1 card-glow">
             <div class="w-14 h-14 bg-navy/5 group-hover:bg-red/10 rounded-xl flex items-center justify-center mb-5 transition-colors">
               <svg class="w-7 h-7 text-navy group-hover:text-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -420,7 +433,7 @@
           </div>
 
           <!-- Cloud Solutions -->
-          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1">
+          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1 card-glow">
             <div class="w-14 h-14 bg-navy/5 group-hover:bg-red/10 rounded-xl flex items-center justify-center mb-5 transition-colors">
               <svg class="w-7 h-7 text-navy group-hover:text-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
@@ -435,7 +448,7 @@
           </div>
 
           <!-- Professional Services -->
-          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1">
+          <div class="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:border-red/20 transition-all duration-300 hover:-translate-y-1 card-glow">
             <div class="w-14 h-14 bg-navy/5 group-hover:bg-red/10 rounded-xl flex items-center justify-center mb-5 transition-colors">
               <svg class="w-7 h-7 text-navy group-hover:text-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -453,11 +466,21 @@
     </section>
 
 
+    <!-- Wave divider: services → deployments -->
+    <div class="relative h-16 -mt-1 z-10">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 w-full" preserveAspectRatio="none">
+        <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 48C960 48 1056 36 1152 28C1248 20 1344 16 1392 14L1440 12V60H0Z" fill="#0d1b3e"/>
+      </svg>
+    </div>
+
     <!-- ============================================================
          5. DEPLOYMENTS / WHY US — Two columns
          ============================================================ -->
-    <section id="deployments" class="reveal py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="deployments" class="reveal py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=800&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.12]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- Left: text -->
           <div>
@@ -511,8 +534,11 @@
     <!-- ============================================================
          6. TESTIMONIALS — Horizontal scroll carousel
          ============================================================ -->
-    <section id="testimonials" class="reveal py-20 lg:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" class="reveal py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=800&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.05]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Section header -->
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="inline-block text-xs font-semibold tracking-widest uppercase text-red mb-3">Client Feedback</span>
@@ -524,7 +550,7 @@
         <div class="relative">
           <div id="testimonial-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4">
             <!-- Testimonial 1 -->
-            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100 card-glow">
               <div class="flex gap-1 mb-4">
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -545,7 +571,7 @@
             </div>
 
             <!-- Testimonial 2 -->
-            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100 card-glow">
               <div class="flex gap-1 mb-4">
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -566,7 +592,7 @@
             </div>
 
             <!-- Testimonial 3 -->
-            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100 card-glow">
               <div class="flex gap-1 mb-4">
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -587,7 +613,7 @@
             </div>
 
             <!-- Testimonial 4 -->
-            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div class="snap-center shrink-0 w-[340px] sm:w-[400px] bg-gray-50 rounded-2xl p-7 border border-gray-100 card-glow">
               <div class="flex gap-1 mb-4">
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -623,8 +649,11 @@
     <!-- ============================================================
          7. MULTI-STEP BOOKING WIZARD
          ============================================================ -->
-    <section id="booking" class="reveal py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="booking" class="reveal py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=800&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.04]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="inline-block text-xs font-semibold tracking-widest uppercase text-red mb-3">Get Started</span>
           <h2 class="font-heading font-bold text-3xl sm:text-4xl text-navy mb-4">Request a Consultation</h2>
@@ -877,8 +906,11 @@
     <!-- ============================================================
          8. FAQ ACCORDION
          ============================================================ -->
-    <section id="faq" class="reveal py-20 lg:py-28 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" class="reveal py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&h=600&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.05]" loading="lazy">
+      </div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center mb-14">
           <span class="inline-block text-xs font-semibold tracking-widest uppercase text-red mb-3">FAQ</span>
           <h2 class="font-heading font-bold text-3xl sm:text-4xl text-navy mb-4">Frequently Asked Questions</h2>
@@ -958,8 +990,11 @@
     <!-- ============================================================
          9. CONTACT SECTION — Two columns
          ============================================================ -->
-    <section id="contact" class="reveal py-20 lg:py-28 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="reveal py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=800&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.04]" loading="lazy">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="inline-block text-xs font-semibold tracking-widest uppercase text-red mb-3">Contact Us</span>
           <h2 class="font-heading font-bold text-3xl sm:text-4xl text-navy mb-4">Let's Talk About Your Project</h2>
@@ -1071,8 +1106,11 @@
     <!-- ============================================================
          10. CTA BAND
          ============================================================ -->
-    <section class="reveal bg-navy py-16 lg:py-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="reveal bg-navy py-16 lg:py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&h=400&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.10]" loading="lazy">
+      </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 class="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">Ready to Transform Your IT Infrastructure?</h2>
         <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Partner with SmartGrid for end-to-end systems integration, managed services, and global deployments backed by 25 years of enterprise experience.</p>
         <a href="#booking" class="inline-flex items-center gap-2 bg-red hover:bg-red-light text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-base">
@@ -1088,8 +1126,11 @@
   <!-- ============================================================
        11. FOOTER
        ============================================================ -->
-  <footer class="bg-navy-dark text-gray-400 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <footer class="bg-navy-dark text-gray-400 pt-16 pb-8 relative overflow-hidden">
+    <div class="absolute inset-0 z-0" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&h=600&fit=crop&q=60" alt="" class="w-full h-full object-cover opacity-[0.06]" loading="lazy">
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <!-- Company -->
         <div>

@@ -163,6 +163,73 @@ html { scroll-behavior: smooth; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 
+/* ============================================
+   Background Image Overlays
+   ============================================ */
+
+/* Section with background image - add to section element */
+.section-bg {
+  position: relative;
+  overflow: hidden;
+}
+.section-bg > * {
+  position: relative;
+  z-index: 2;
+}
+/* The bg image goes in a ::before or an actual <div> child */
+
+/* Wave SVG divider between sections */
+.wave-top {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 3;
+}
+.wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 3;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #0d1b3e 0%, #1a2d5a 50%, #c62828 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card glow on hover */
+.card-glow {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.card-glow:hover {
+  box-shadow: 0 0 40px rgba(13,27,62,0.12), 0 20px 40px rgba(0,0,0,0.08);
+  transform: translateY(-6px);
+}
+
+/* Parallax background */
+.bg-parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Diagonal clip section */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+}
+
+@media (max-width: 768px) {
+  .bg-parallax { background-attachment: scroll; }
+  .clip-diagonal { clip-path: polygon(0 0, 100% 2%, 100% 98%, 0 100%); }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
