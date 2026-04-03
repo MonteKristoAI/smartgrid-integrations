@@ -193,7 +193,7 @@
   <!-- ============================================================
        1. HEADER — Fixed top navigation
        ============================================================ -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-md border-b border-white/10 transition-shadow duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
         <!-- Logo -->
@@ -201,17 +201,17 @@
           <div class="w-9 h-9 bg-navy rounded-lg flex items-center justify-center">
             <span class="text-white font-heading font-bold text-sm">SGi</span>
           </div>
-          <span class="font-heading font-bold text-lg text-navy hidden sm:block">SmartGrid</span>
+          <span class="font-heading font-bold text-lg text-white hidden sm:block">SmartGrid</span>
         </a>
 
         <!-- Desktop Nav -->
         <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
-          <a href="index.html" class="text-sm font-medium text-navy hover:text-red transition-colors">Home</a>
-          <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-red transition-colors">About Us</a>
-          <a href="services.html" class="text-sm font-medium text-gray-600 hover:text-red transition-colors">Services</a>
-          <a href="deployments.html" class="text-sm font-medium text-gray-600 hover:text-red transition-colors">Deployments</a>
-          <a href="index.html#partners" class="text-sm font-medium text-gray-600 hover:text-red transition-colors">Partners</a>
-          <a href="contact.html" class="text-sm font-medium text-gray-600 hover:text-red transition-colors">Contact</a>
+          <a href="index.html" class="text-sm font-medium text-white hover:text-red-light transition-colors">Home</a>
+          <a href="about.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About Us</a>
+          <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
+          <a href="deployments.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Deployments</a>
+          <a href="index.html#partners" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Partners</a>
+          <a href="contact.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Contact</a>
         </nav>
 
         <!-- CTA + Mobile toggle -->
@@ -219,8 +219,8 @@
           <a href="#booking" class="hidden sm:inline-flex items-center gap-2 bg-red hover:bg-red-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
             Get a Quote
           </a>
-          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Open menu" aria-expanded="false">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Open menu" aria-expanded="false">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
               <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -1498,18 +1498,30 @@
           var msg = chatInput.value.trim();
           if (!msg) return;
 
-          // User message
-          chatMessages.insertAdjacentHTML('beforeend',
-            '<div class="flex gap-2 mb-3 justify-end"><div class="bg-red text-white rounded-xl rounded-tr-sm px-4 py-2.5 max-w-[85%]"><p class="text-sm">' + msg + '</p></div></div>'
-          );
+          // User message (safe DOM creation — no innerHTML/XSS)
+          var userRow = document.createElement('div');
+          userRow.className = 'flex gap-2 mb-3 justify-end';
+          var userBubble = document.createElement('div');
+          userBubble.className = 'bg-red text-white rounded-xl rounded-tr-sm px-4 py-2.5 max-w-[85%]';
+          var userText = document.createElement('p');
+          userText.className = 'text-sm';
+          userText.textContent = msg;
+          userBubble.appendChild(userText);
+          userRow.appendChild(userBubble);
+          chatMessages.appendChild(userRow);
           chatInput.value = '';
           chatMessages.scrollTop = chatMessages.scrollHeight;
 
-          // Bot response
+          // Bot response (safe DOM creation)
           setTimeout(function() {
-            chatMessages.insertAdjacentHTML('beforeend',
-              '<div class="flex gap-2 mb-3"><div class="w-7 h-7 bg-navy rounded-full flex items-center justify-center shrink-0"><span class="text-white text-xs font-bold">S</span></div><div class="bg-gray-100 rounded-xl rounded-tl-sm px-4 py-2.5 max-w-[85%]"><p class="text-sm text-gray-700">Thanks for reaching out! For detailed assistance, please call us at <a href="tel:+18557464744" class="text-red font-medium">+1 (855) 746-4744</a> or <a href="#booking" class="text-red font-medium">request a consultation</a>.</p></div></div>'
-            );
+            var botRow = document.createElement('div');
+            botRow.className = 'flex gap-2 mb-3';
+            botRow.innerHTML = '<div class="w-7 h-7 bg-navy rounded-full flex items-center justify-center shrink-0"><span class="text-white text-xs font-bold">S</span></div>';
+            var botBubble = document.createElement('div');
+            botBubble.className = 'bg-gray-100 rounded-xl rounded-tl-sm px-4 py-2.5 max-w-[85%]';
+            botBubble.innerHTML = '<p class="text-sm text-gray-700">Thanks for reaching out! For detailed assistance, please call us at <a href="tel:+18557464744" class="text-red font-medium">+1 (855) 746-4744</a> or <a href="#booking" class="text-red font-medium">request a consultation</a>.</p>';
+            botRow.appendChild(botBubble);
+            chatMessages.appendChild(botRow);
             chatMessages.scrollTop = chatMessages.scrollHeight;
           }, 800);
         });
@@ -1531,49 +1543,7 @@
         });
       });
 
-      // Booking Wizard Step Navigation
-      const wizardSteps = document.querySelectorAll('[data-wizard-step]');
-      const wizardNextBtns = document.querySelectorAll('.wizard-next');
-      const wizardPrevBtns = document.querySelectorAll('.wizard-prev');
-      const stepCircles = document.querySelectorAll('.step-circle');
-      const progressBar = document.querySelector('.wizard-progress-fill');
-      let currentWizardStep = 1;
-
-      function showWizardStep(step) {
-        wizardSteps.forEach(s => s.classList.add('hidden'));
-        const target = document.querySelector(`[data-wizard-step="${step}"]`);
-        if (target) target.classList.remove('hidden');
-        stepCircles.forEach((circle, i) => {
-          if (i + 1 <= step) {
-            circle.classList.add('bg-[#0d1b3e]', 'text-white');
-            circle.classList.remove('bg-gray-200', 'text-gray-500');
-          } else {
-            circle.classList.remove('bg-[#0d1b3e]', 'text-white');
-            circle.classList.add('bg-gray-200', 'text-gray-500');
-          }
-        });
-        if (progressBar) progressBar.style.width = ((step - 1) / 2 * 100) + '%';
-        currentWizardStep = step;
-      }
-
-      wizardNextBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (currentWizardStep < 3) showWizardStep(currentWizardStep + 1);
-        });
-      });
-      wizardPrevBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (currentWizardStep > 1) showWizardStep(currentWizardStep - 1);
-        });
-      });
-
-      // Service card selection
-      document.querySelectorAll('.service-option').forEach(card => {
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.service-option').forEach(c => c.classList.remove('ring-2', 'ring-[#c62828]', 'border-[#c62828]'));
-          card.classList.add('ring-2', 'ring-[#c62828]', 'border-[#c62828]');
-        });
-      });
+      // (Wizard navigation handled by inline updateWizardStep above)
 
     });
   </script>
