@@ -19,6 +19,9 @@
   <meta name="twitter:title" content="Contact SmartGrid Integrations">
   <meta name="twitter:description" content="Reach our team for IT integration, global deployments, and managed services.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -28,6 +31,8 @@
             red: { 700: '#c62828', 800: '#8e0000' },
           },
           fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
             sans: ['Inter', 'system-ui', 'sans-serif'],
           }
         }
@@ -76,6 +81,7 @@
     </div>
   </header>
 
+  <main>
   <!-- ========== MINI HERO ========== -->
   <section class="relative bg-navy-gradient pt-20 lg:pt-24" style="min-height:40vh;">
     <div class="absolute inset-0 bg-grid opacity-30"></div>
@@ -200,6 +206,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ========== FOOTER ========== -->
   <footer class="bg-navy pt-16 pb-8">
@@ -307,5 +314,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/components/review-modal.js"></script>
 </body>
 </html>

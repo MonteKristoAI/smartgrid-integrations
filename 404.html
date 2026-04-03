@@ -7,6 +7,9 @@
   <meta name="description" content="The page you are looking for could not be found. Return to the SmartGrid Integrations homepage.">
   <meta name="robots" content="noindex, nofollow">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -16,6 +19,8 @@
             red: { 700: '#c62828', 800: '#8e0000' },
           },
           fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
             sans: ['Inter', 'system-ui', 'sans-serif'],
           }
         }
@@ -138,6 +143,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile CTA Bar -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg lg:hidden">
+    <div class="flex gap-3 p-3 max-w-lg mx-auto">
+      <a href="tel:+18557464744" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border border-navy text-navy font-semibold text-sm">Call Us</a>
+      <a href="index.html#booking" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-red text-white font-semibold text-sm">Get a Quote</a>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
